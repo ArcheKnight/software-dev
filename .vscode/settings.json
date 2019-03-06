@@ -1,0 +1,8 @@
+{
+  "git.ignoreLimitWarning": true,
+  "editor.tabSize": 2,
+	"html.format.indentInnerHtml": true,
+  "editor.detectIndentation": false,
+  "workbench.editor.enablePreview": false,
+  "files.autoSave": "onFocusChange"
+}
