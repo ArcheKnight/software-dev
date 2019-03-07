@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 const App = () => {
   const nameInput = {
     label: 'Enter name: ',
-    button: 'Click Me!'
+    button: 'Submit'
   }
 
   return (
