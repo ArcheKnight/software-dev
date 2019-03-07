@@ -8,9 +8,8 @@ class App extends React.Component {
 
     // The only time that we directly assign something to this.state
     //this.state = { lat: null };
-    this.state = { lat: '37', errorMessage: '' };
+    this.state = { lat: null, errorMessage: '' };
 
-      /*
         window.navigator.geolocation.getCurrentPosition(
           (position) => {
             // Call setState to update state
@@ -20,7 +19,6 @@ class App extends React.Component {
             this.setState({ errorMessage: err.message });
           } //error callback
         );
-      */
   }
 
   // React requires render method
