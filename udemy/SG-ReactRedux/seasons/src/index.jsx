@@ -7,20 +7,31 @@ class App extends React.Component {
     super(props);
 
     // The only time that we directly assign something to this.state
-    this.state = { lat: null };
+    //this.state = { lat: null };
+    this.state = { lat: '37', errorMessage: '' };
 
-    window.navigator.geolocation.getCurrentPosition(
-      (position) => {
-        // Call setState to update state
-        this.setState({ lat: position.coords.latitude });
-      }, // Success callback
-      (err) => { console.log(err) } //error callback
-    );
+      /*
+        window.navigator.geolocation.getCurrentPosition(
+          (position) => {
+            // Call setState to update state
+            this.setState({ lat: position.coords.latitude });
+          }, // Success callback
+          (err) => {
+            this.setState({ errorMessage: err.message });
+          } //error callback
+        );
+      */
   }
 
   // React requires render method
   render() {
-    return <h3>Latitude: {this.state.lat}</h3>;
+    if (this.state.errorMessage && !this.state.lat) {
+      return <div>Error: {this.state.errorMessage}</div>;
+    } else if (!this.state.errorMessage && this.state.lat) {
+      return <div>Latitude: {this.state.lat}</div>;
+    } else {
+      return <div>Loading!</div>;
+    }
   }
 }
 
