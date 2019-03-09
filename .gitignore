@@ -144,3 +144,4 @@ $RECYCLE.BIN/
 # Personal
 YelpCamp/old
 git-token.txt
+*.pem
