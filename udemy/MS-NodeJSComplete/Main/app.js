@@ -1,10 +1,10 @@
-const http = require('http');
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-const expressHbs = require('express-handlebars');
 
-const adminData = require('./routes/admin');
+const errorController = require('./controllers/error');
+
+const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
 const app = express();
@@ -15,17 +15,11 @@ app.set('views', 'views'); // Not necessary because we use views folder which is
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/admin', adminData.routes);
+app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
-// Default route
-// '/' is default and uncessary | Will get all urls starting with '/', is default
-app.use((req, res, next) => {
-	res.status(404).render('404', {
-		pageTitle: 'Page Not Found',
-		path: ''
-	});
-});
+// 404 Route
+app.use(errorController.get404);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
