@@ -59,3 +59,6 @@ typings/
 
 # next.js build output
 .next
+
+#C9 env dir
+.c9/

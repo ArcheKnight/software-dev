@@ -1,28 +1,27 @@
 {
-	"name": "devonmt",
-	"version": "1.0.0",
-	"description": "My personal website for tracking personal interests, work portfolio, and develop new applications",
-	"main": "app.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "node app.js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/ArcheKnight/devonmt.git"
-	},
-	"author": "Devon Troedel",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/ArcheKnight/devonmt/issues"
-	},
-	"homepage": "https://github.com/ArcheKnight/devonmt#readme",
-	"devDependencies": {
-		"nodemon": "^1.18.10"
-	},
-	"dependencies": {
-		"ejs": "^2.6.1",
-		"express": "^4.16.4",
-		"express-ejs-layouts": "^2.5.0"
-	}
+  "name": "devonmt",
+  "version": "1.0.0",
+  "description": "My personal website for tracking personal interests, work portfolio, and develop new applications",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArcheKnight/devonmt.git"
+  },
+  "author": "Devon Troedel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArcheKnight/devonmt/issues"
+  },
+  "homepage": "https://github.com/ArcheKnight/devonmt#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
 }

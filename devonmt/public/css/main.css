@@ -1,0 +1,16 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: tan;
+}
+
+#header {
+	width: 100%;
+	height: 35vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.ui.menu {
+	border-radius: 0;
+}

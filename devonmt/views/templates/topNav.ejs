@@ -1,0 +1,12 @@
+<header>
+  <div class="ui top fixed stackable menu" id="topNavMenu">
+    <a class="item <%= pageVars.name === 'home' ? 'active' : '' %>">Home</a>
+    <a class="item <%= pageVars.name === 'aboutme' ? 'active' : '' %>">About Me</a>
+    <a class="item <%= pageVars.name === 'links' ? 'active' : '' %>">Links</a>
+    <div class="right menu">
+      <a class="item <%= pageVars.name === 'login' ? 'active' : '' %>">Login</a>
+      <a class="item <%= pageVars.name === 'signup' ? 'active' : '' %>">Sign Up</a>
+    </div>
+  </div>
+  <div id="header" style="background-image:url(<%= pageVars.image %>)" />
+</header>
