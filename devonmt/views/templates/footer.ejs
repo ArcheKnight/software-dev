@@ -1,5 +1,5 @@
 <footer>
-    <div class="ui bottom fixed menu">
+    <div class="ui inverted blue tiny bottom fixed menu clear" id="bottomNavMenu">
         <div class="item">Footer</div>
     </div>
 </footer>
@@ -10,6 +10,6 @@
 <script src="/scripts/main.js"></script>
 <% if (pageVars.scripts) { %>
     <% for (let script of pageVars.scripts) { %>
-        <%- include('../scripts/' + script) %>
+        <%- script %>
     <% } %>
 <% } %>

@@ -1,30 +1,18 @@
 const router = require('express').Router();
-const helpers = require('../middleware/helpers');
 const controllers = require('../controllers/main');
 
 // GET landing page
-router.get('/', helpers.getPageVars, (req, res) => {
-    controllers.landing(req, res)
+router.get('/', controllers.landing);
+
+// GET aboutme page
+router.get('/aboutme', controllers.aboutme);
+
+// GET 404 page
+router.get('/404', controllers.error404);
+
+// GET error page
+router.use((req, res) => {
+	res.status(404).redirect('/404');
 });
-
-// GET login page
-router.get('/login', helpers.getPageVars, (req, res) => {
-    controllers.getLogin(req, res);
-})
-
-// POST login page
-router.post('/login', (req, res) => {
-    controllers.postLogin(req, res);
-})
-
-// GET sign up page
-router.get('/login', helpers.getPageVars, (req, res) => {
-    controllers.getSignUp(req, res);
-})
-
-// POST sign up page
-router.post('/login', (req, res) => {
-    controllers.postSignUp(req, res);
-})
 
 module.exports = router;

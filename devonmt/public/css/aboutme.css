@@ -1,0 +1,55 @@
+#aboutme-header div {
+	border-radius: 0;
+	background-color: var(--primary-color) !important;
+}
+
+#aboutme-header div div h1 {
+	color: var(--white-color) !important;
+}
+
+.portrait {
+	border-radius: 20%;
+	width: 20rem !important;
+	border: 3px var(--secondary-color) solid;
+}
+
+span {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+span a i {
+	text-align: center;
+	color: var(--light-gray-color);
+	font-size: 3rem;
+}
+
+span a i:hover {
+	color: var(--secondary-color);
+}
+
+span a:not(:first-of-type) {
+	margin-left: 15px;
+}
+
+.header {
+	margin-top: 5px !important;
+	font-size: 4rem !important;
+}
+
+#aboutme-text {
+	font-size: 1.3rem !important;
+	background-color: var(--dark-gray-color) !important;
+	color: var(--light-gray-color) !important;
+}
+
+#resume {
+	height: 100%;
+}
+
+#resume .ui.embed {
+	width: 100%;
+	height: 100%;
+}

@@ -1,20 +1,25 @@
 {
 	"/": {
 		"name": "home",
-		"title": "Home",
+		"title": "Landing",
 		"body": "landing.ejs",
 		"icon": "",
-		"styles": "",
+		"styles": [
+			"<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/landing.css\">"
+		],
 		"scripts": "",
-		"image": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+		"image": "https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1966&q=80"
 	},
-	"/aboutus": {
+	"/aboutme": {
 		"name": "aboutme",
 		"title": "About Me",
-		"body": "",
+		"body": "aboutme.ejs",
 		"icon": "",
-		"styles": "",
-		"scripts": "",
+		"styles": [
+			"<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/aboutme.css\">",
+			"<link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.7.2/css/all.css\" integrity=\"sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr\" crossorigin=\"anonymous\">"
+		],
+		"scripts": ["<script src=\"/scripts/aboutme.js\"></script>"],
 		"image": ""
 	},
 	"/links": {
@@ -26,19 +31,10 @@
 		"scripts": "",
 		"image": ""
 	},
-	"/login": {
-		"name": "login",
-		"title": "Login",
-		"body": "",
-		"icon": "",
-		"styles": "",
-		"scripts": "",
-		"image": ""
-	},
-	"/signup": {
-		"name": "signup",
-		"title": "Sign Up",
-		"body": "",
+	"/404": {
+		"name": "error",
+		"title": "Error",
+		"body": "404.ejs",
 		"icon": "",
 		"styles": "",
 		"scripts": "",

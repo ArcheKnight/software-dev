@@ -1,16 +1,53 @@
+/* Main: #56A7CB */
+/* Secondary: #FFB665 */
+/* White: #FFFFFF */
+/* Grays: #F4FBFF, #5B7D8C */
+
+/*
+Go to paletton.com for creating a color palette
+www.smashingmagazine.com/2016/04/web-developer-guide-color/
+dribbble.com for inspiration
+coolors.co for saving palettes
+*/
+
+:root {
+	--primary-color: #56a7cb;
+	--secondary-color: #ffb665;
+	--light-gray-color: #f4fbff;
+	--dark-gray-color: #5b7d8c;
+	--white-color: #ffffff;
+}
+
 body {
 	margin: 0;
 	padding: 0;
-	background-color: tan;
+	background-color: var(--light-gray-color);
 }
 
-#header {
-	width: 100%;
-	height: 35vh;
-	background-repeat: no-repeat;
-	background-size: cover;
+#topNavMenu {
+	transition: 0.1s ease-in-out;
+	background-color: var(--light-gray-color) !important;
+}
+
+#topNavMenu.scrolled {
+	background-color: transparent !important;
+}
+
+#bottomNavMenu {
+	transition: 0.1s ease-in-out;
+	background-color: var(--dark-gray-color) !important;
+}
+
+#bottomNavMenu.clear {
+	opacity: 0;
 }
 
 .ui.menu {
 	border-radius: 0;
 }
+
+/*
+.first {
+	margin-top: 15px;
+}
+*/
