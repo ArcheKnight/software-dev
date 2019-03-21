@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css")
+    link(rel="stylesheet", href="styles/main.css")
+
+    if styles
+      for style in styles
+        link(rel="stylesheet", href="#{link}")
+
+    title= pageTitle
+  body
+    header
+      nav.ui.menu.blue
+
+        if pageTitle === 'Home'
+          a.active.item(href="/") Home
+        else
+          a.item(href="/") Home
+
+        if pageTitle === 'Concatenate'
+          a.active.item(href="/concatenate") Concatenate
+        else
+          a.item(href="/concatenate") Concatenate
+
+        if pageTitle === 'Resources'
+          a.active.item(href="/resources") Resources
+        else
+          a.item(href="/links") Resources
+
+        if links
+          .ui.dropdown.item
+            i.angle.down.icon
+            | Links
+            .menu
+              include links
+
+        .right.menu
+          .item
+            .ui.transparent.icon.input
+              input(type="text", placeholder="Search...", name="search")
+              i.search.link.icon
+
+    block body
+      p There is no content for this page
+
+    footer
+      .ui.bottom.fixed.menu
+        .item This is the footer
+
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js")
+    script(src="scripts/main.js")
+
+    if scripts
+      for script in scripts
+        script(src="#{script}")

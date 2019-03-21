@@ -1,0 +1,32 @@
+{
+	"QuickBase": {
+		"header": "QuickBase",
+		"links": {
+			"DistroList": {
+				"name": "Distro List",
+				"url": "/"
+			},
+			"UsersAccess": {
+				"name": "Users Access",
+				"url": "/"
+			},
+			"RosterReport": {
+				"name": "Roster Report",
+				"url": "/"
+			}
+		}
+	},
+	"AMS": {
+		"header": "AMS",
+		"links": {
+			"FieldDashboard": {
+				"name": "Field Dashboard",
+				"url": "/"
+			},
+			"UsersAccess": {
+				"name": "Users Access",
+				"url": "/"
+			}
+		}
+	}
+}
