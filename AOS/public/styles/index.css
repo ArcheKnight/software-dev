@@ -2,19 +2,30 @@
 	margin-top: 20px;
 }
 
+.row:first-of-type {
+	padding-bottom: 3px !important;
+}
+
 .row:last-of-type {
-	padding-top: 5px !important;
+	padding-top: 3px !important;
 }
 
-h2.ui.header {
-	font-size: 2.5rem;
+.blog-title {
+	font-size: 2.1rem !important;
+	font-style: italic;
 }
 
-p.ui.floated.header {
-	font-size: 1rem;
-	color: rgba(0, 0, 0, 0.6) !important;
+.blog-author {
+	font-size: 1rem !important;
+	color: rgba(0,0,0,0.7) !important;
 }
 
-.ui.clearing.top.attached.segment {
-	padding-bottom: 5px;
+.blog-time {
+	font-size: 1rem !important;
+	color: rgba(0,0,0,0.7) !important;
+}
+
+.blog-text {
+	text-indent: .7rem;
+	white-space: pre-wrap;
 }
