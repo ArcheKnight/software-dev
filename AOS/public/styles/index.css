@@ -1,0 +1,20 @@
+.ui.top.attached:first-of-type {
+	margin-top: 20px;
+}
+
+.row:last-of-type {
+	padding-top: 5px !important;
+}
+
+h2.ui.header {
+	font-size: 2.5rem;
+}
+
+p.ui.floated.header {
+	font-size: 1rem;
+	color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.ui.clearing.top.attached.segment {
+	padding-bottom: 5px;
+}

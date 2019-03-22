@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const middleware = require('./middleware/main.js');
 const main = require('./routes/main.js');
@@ -8,6 +9,7 @@ const app = express();
 
 app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(middleware.getLinks, main);
 

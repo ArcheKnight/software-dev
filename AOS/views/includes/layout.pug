@@ -9,7 +9,8 @@ html(lang="en")
 
     if styles
       for style in styles
-        link(rel="stylesheet", href="#{link}")
+        console.log(style)
+        link(rel="stylesheet", href= style)
 
     title= pageTitle
   body
@@ -39,6 +40,7 @@ html(lang="en")
               include links
 
         .right.menu
+          a.item(href="/blogs/add") Add Blog Post
           .item
             .ui.transparent.icon.input
               input(type="text", placeholder="Search...", name="search")
@@ -57,4 +59,4 @@ html(lang="en")
 
     if scripts
       for script in scripts
-        script(src="#{script}")
+        script(src= script)
