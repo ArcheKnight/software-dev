@@ -1,6 +1,12 @@
 extends ../includes/layout
 block body
   .ui.container
+    .ui.top.attached.segment
+      a.ui.green.button(href="/blogs/add") Add Post
+      if reverse === 'false'
+        a.ui.right.floated.inverted.blue.button(href="/?reverse=true") Reverse Sort
+      else
+        a.ui.right.floated.inverted.blue.button(href="/") Default Sort
     if blogs[0]
       for blog in blogs
         .ui.clearing.top.attached.segment
@@ -17,7 +23,7 @@ block body
               .column
                 p.ui.left.floated.header= blog.author
               .column
-                p.ui.right.floated.header= blog.created
+                p.ui.right.floated.header(title=`${blog.time}`) #{blog.timeSince}
         .ui.attached.stacked.segment
           p= blog.text
     else

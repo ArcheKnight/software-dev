@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const moment = require('moment');
 
 const p = path.join(
 	path.dirname(process.mainModule.filename),
@@ -17,49 +18,46 @@ const fetchAllBlogs = cb => {
 	});
 };
 
-const newDate = () => {
-	const now = new Date();
-	let month = now.getMonth() + 1;
-	let day = now.getDate();
-	let year = now.getFullYear();
-	let hour = now.getHours();
-	let minutes = now.getMinutes();
-	let time = 'AM';
-	if (hour >= 13) {
-		hour -= 12;
-		time = 'PM';
-	} else if (hour === 0) hour = 12;
-	if (minutes.toString().length === 1) minutes = '' + 0 + minutes;
-	return `${month}/${day}/${year} ${hour}:${minutes} ${time}`;
-};
+const setCreated = (blog, cb) => {
+	blog.created = new Date();
+	blog.time = moment(blog.created).utcOffset(-5).format('LLL');
+	cb(blog);
+}
 
 class Blog {
-	constructor(title, text, author, id) {
+	constructor(title, text, author, id, created, time) {
 		this.id = id || Math.random().toString();
 		this.title = title;
 		this.text = text;
 		this.author = author;
-		this.created = newDate();
+		this.created = created;
+		this.time = time;
 	}
 
 	saveBlog() {
 		//this.id = Math.random().toString();
 		fetchAllBlogs(blogs => {
-			blogs.push(this);
-			fs.writeFile(p, JSON.stringify(blogs), err => {
-				console.log(err);
-			});
+			setCreated(this, (blog) => {
+				blogs.unshift(blog);
+				fs.writeFile(p, JSON.stringify(blogs), err => {
+					if (err) console.log(err);
+				});
+			})
 		});
 	}
 
-	updateBlog(cb) {
+	static updateBlog(blog, cb) {
 		fetchAllBlogs(blogs => {
-			const arr = [...blogs].filter(obj => {
-				return obj.id !== this.id;
-			});
-			arr.push(this);
-			fs.writeFile(p, JSON.stringify(arr), err => {
-				console.log(err);
+			const newBlogs = [...blogs];
+			let obj = {};
+			for (let ele of newBlogs) {
+				if (ele.id === blog.id) obj = ele;
+			}
+			
+			Object.assign(obj, blog);
+
+			fs.writeFile(p, JSON.stringify(newBlogs), err => {
+				if (err) console.log(err);
 			});
 			cb();
 		});
@@ -80,7 +78,7 @@ class Blog {
 				return obj.id !== id;
 			});
 			fs.writeFile(p, JSON.stringify(result), err => {
-				console.log(err);
+				if (err) console.log(err);
 			});
 			cb();
 		});
