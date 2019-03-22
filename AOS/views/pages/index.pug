@@ -1,31 +1,24 @@
 extends ../includes/layout
 block body
   .ui.container
-    .ui.top.attached.segment
-      a.ui.green.button(href="/blogs/add") Add Post
-      if reverse === 'false'
-        a.ui.right.floated.inverted.blue.button(href="/?reverse=true") Reverse Sort
-      else
-        a.ui.right.floated.inverted.blue.button(href="/") Default Sort
+    .ui.clearing.raised.segment
+      .ui.left.floated.buttons
+        a.ui.primary.button(href="/blogs/add") Add Post
+        if reverse === 'false'
+          a.ui.vertical.animated.button(href="/?reverse=true", tabindex="0")
+            .visible.content Default Sort
+            .hidden.content Reverse Sort
+        else
+          a.ui.vertical.animated.button(href="/", tabindex="0")
+            .visible.content Reverse Sort
+            .hidden.content Default Sort
+      .ui.bottom.right.attached.label
+        i.mail.icon
+        .detail #{blogs.length}
     if blogs[0]
       for blog in blogs
-        .ui.clearing.top.attached.segment
-          .ui.two.column.grid
-            .row
-              .column
-                h2.ui.left.floated.header= blog.title
-              .column
-                a.ui.right.floated.green.mini.button(href=`/blogs/${blog.id}/edit`) Edit
-                form(action=`/blogs/${blog.id}/delete`, method="post")
-                  input(type="hidden", name="blogId", value= blog.id)
-                  input.ui.right.floated.red.mini.button(type="submit", value="Delete")
-            .row
-              .column
-                p.ui.left.floated.header= blog.author
-              .column
-                p.ui.right.floated.header(title=`${blog.time}`) #{blog.timeSince}
-        .ui.attached.stacked.segment
-          p= blog.text
+        include ../includes/blog
+          
     else
-      .ui.container.segment(style="margin-top:15px;")
+      .ui.container.raised.segment(style="margin-top:15px;")
         h1.ui.header.center.aligned No posts to show
