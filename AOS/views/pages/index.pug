@@ -6,14 +6,22 @@ block body
         a.ui.primary.button(href="/blogs/add") Add Post
         if reverse === 'false'
           a.ui.vertical.animated.button(href="/?reverse=true", tabindex="0")
-            .visible.content Default Sort
-            .hidden.content Reverse Sort
+            .visible.content
+              i.icon.sort.amount.down
+              | Default Sort
+            .hidden.content
+              i.icon.sort.amount.up
+              | Reverse Sort
         else
           a.ui.vertical.animated.button(href="/", tabindex="0")
-            .visible.content Reverse Sort
-            .hidden.content Default Sort
+            .visible.content
+              i.icon.sort.amount.up
+              | Reverse Sort
+            .hidden.content
+              i.icon.sort.amount.down
+              | Default Sort
       .ui.bottom.right.attached.label
-        i.mail.icon
+        i.newspaper.outline.icon
         .detail #{blogs.length}
     if blogs[0]
       for blog in blogs

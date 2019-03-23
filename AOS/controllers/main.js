@@ -6,7 +6,8 @@ main.getHomePage = (req, res) => {
 	Blog.getAllBlogs(blogs => {
 		res.render('pages/index', {
 			pageTitle: 'Home',
-			styles: ['styles/index.css']
+			styles: ['styles/index.css'],
+			scripts: ['scripts/index.js']
 		});
 	});
 };
@@ -38,12 +39,12 @@ main.getEditBlogPage = (req, res) => {
 
 main.postEditBlogPage = (req, res) => {
 	const id = req.params.blogId;
-	
+
 	const title = req.body.title;
 	const author = req.body.author;
 	const text = req.body.text;
 
-	const blog = {title, text, author, id};
+	const blog = { title, text, author, id };
 
 	Blog.updateBlog(blog, () => {
 		res.redirect('/');

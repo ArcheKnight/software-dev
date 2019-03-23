@@ -5,4 +5,4 @@ for link in links
     .menu
       if link.links
         for ref in link.links
-          a.item(href="#{ref.url}")= ref.name
+          a.item(href=`${ref.url}`)= ref.name
