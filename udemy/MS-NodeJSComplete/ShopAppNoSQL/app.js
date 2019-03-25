@@ -2,9 +2,9 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const errorController = require('./controllers/error');
-const mongoConnect = require('./util/database').mongoConnect;
 const User = require('./models/user');
 
 const app = express();
@@ -19,9 +19,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-	User.findById('5c98233c1c9d440000632943')
+	User.findById('5c984f65f48e8734f09f9685')
 		.then(user => {
-			req.user = new User(user.name, user.email, user.cart, user._id);
+			req.user = user;
 			next();
 		})
 		.catch(err => console.log(err));
@@ -33,6 +33,28 @@ app.use(shopRoutes);
 app.use(errorController.get404);
 
 const port = process.env.PORT || 3000;
-mongoConnect(() => {
-	app.listen(port, () => console.log(`Listening on port ${port}`));
-});
+mongoose
+	.connect(
+		'mongodb+srv://devon:lrt032ca@cluster0-bovxh.mongodb.net/shop?retryWrites=true',
+		{ useNewUrlParser: true }
+	)
+	.then(() => {
+		User.findOne().then(user => {
+			if (!user) {
+				const user = new User({
+					name: 'Devon',
+					email: 'test@test.com',
+					cart: {
+						items: []
+					}
+				});
+				user.save();
+			}
+		});
+
+		app.listen(port, () => {
+			console.log(`Connected on port ${port}`);
+			console.log('Connected to MongoDB Atlas');
+		});
+	})
+	.catch(err => console.log(err));
