@@ -1,0 +1,8 @@
+for section in sections
+  .ui.dorpdown.item
+    i.angle.right.icon
+    | #{section.title}
+    .menu
+      if section.links
+        for link in section.links
+          a.item(href=`${link.url}`)= link.name

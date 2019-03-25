@@ -1,0 +1,16 @@
+extends ../../includes/layout
+
+block body
+  .ui.container.raised.segment
+    form.ui.equal.width.form(action=`/blogs/${blog.id}/edit`, method="post")
+      h4.ui.dividing.header= pageTitle
+      .field
+        label(for="") Title
+        .field
+          input(type="text", name="title", value=`${blog.title}`)
+      .field
+        label(for="") Text
+        .field
+          textarea(name="text")= blog.body
+      input(type="hidden", name="blogId", value= blog.id)
+      input.ui.align.right.submit.primary.button(type="submit", value="Update Blog Entry")

@@ -1,0 +1,1 @@
+module.exports = 'WMAcademySupport-SoylentGreenIsPeople'; // Password to verify that user is a member of the academy support team

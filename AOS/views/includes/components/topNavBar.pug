@@ -1,0 +1,43 @@
+header#top-nav
+  nav.ui.borderless.large.menu.top.fixed.blue
+    .ui.container
+      if pageTitle === 'Home'
+        a.active.item(href="/") Home
+      else
+        a.item(href="/") Home
+      
+      if pageTitle === 'Concatenate'
+        a.active.item(href="/concatenate") Concatenate
+      else
+        a.item(href="/concatenate") Concatenate
+      
+      if pageTitle === 'Resources'
+        a.active.item(href="/resources") Resources
+      else
+        a.item(href="/links") Resources
+      
+      if sections
+        .ui.dropdown.item
+          i.angle.down.icon
+          | Links
+          .menu
+            include ./links
+      
+      .right.menu
+        if !user
+          a.ui.vertical.animated.button.item(href="/user/sign-in")
+            .visible.content
+              | Sign In
+            .hidden.content
+              i.sign-in.icon
+          a.ui.vertical.animated.button.item(href="/user/verify-user")
+            .visible.content
+              | Sign Up
+            .hidden.content
+              i.counterclockwise.rotated.sign-in.icon
+        else
+          a.ui.vertical.animated.button.item(href="/")
+            .visible.content
+              | Sign Out
+            .hidden.content
+              i.sign-out.icon

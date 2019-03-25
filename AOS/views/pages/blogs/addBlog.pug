@@ -1,0 +1,15 @@
+extends ../../includes/layout
+
+block body
+  .ui.container.raised.segment
+    form.ui.equal.width.form(action="/blogs/add", method="post")
+      h4.ui.dividing.header= pageTitle
+      .field
+        label(for="") Title
+        .field
+          input(type="text", name="title", placeholder="Entry Title")
+      .field
+        label(for="") Text
+        .field
+          textarea(name="body", placeholder="Type Your Blog Here")
+      input.ui.align.right.submit.green.button(type="submit", value="Add Blog Entry")
