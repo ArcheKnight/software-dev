@@ -58,7 +58,7 @@ exports.postEditProduct = (req, res, next) => {
 	const updatedPrice = req.body.price;
 	const updatedImageUrl = req.body.imageUrl;
 	const updatedDesc = req.body.description;
-	Product.findByIdAndDelete(prodId, {
+	Product.findByIdAndUpdate(prodId, {
 		title: updatedTitle,
 		price: updatedPrice,
 		description: updatedDesc,

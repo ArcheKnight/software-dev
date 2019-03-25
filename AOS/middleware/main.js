@@ -1,33 +1,23 @@
-const path = require('path');
-const fs = require('fs');
-
 const moment = require('moment');
-const Blog = require('../models/Blog');
 
-const middleware = {};
+const Link = require('../models/Link.js');
+const Blog = require('../models/Blog.js');
 
-const p = path.join(
-	path.dirname(process.mainModule.filename),
-	'data',
-	'links.json'
-);
-
-middleware.getLinks = (req, res, next) => {
-	fs.readFile(p, (err, data) => {
-		if (err) {
-			res.locals.links = [];
-			next();
-		} else {
-			res.locals.links = JSON.parse(data);
-			next();
-		}
-	});
+exports.getLinks = (req, res, next) => {
+	Link.find().then(sections => {
+		res.locals.sections = sections;
+		next();
+	})
 };
 
-middleware.getDateFroms = (req, res, next) => {
-	Blog.getAllBlogs(blogs => {
+exports.getUser = (req, res, next) => {
+	next();
+}
+
+exports.getBlogs = (req, res, next) => {
+	Blog.find().populate().exec().then(blogs => {
 		for (let blog of blogs) {
-			blog.timeSince = moment(blog.created).from();
+			blog.timeSince = moment(blog.date).from();
 		}
 
 		res.locals.reverse = req.query.reverse || 'false';
@@ -36,5 +26,3 @@ middleware.getDateFroms = (req, res, next) => {
 		next();
 	})
 }
-
-module.exports = middleware;

@@ -1,8 +1,0 @@
-for link in links
-  .ui.dorpdown.item
-    i.angle.right.icon
-    | #{link.header}
-    .menu
-      if link.links
-        for ref in link.links
-          a.item(href=`${ref.url}`)= ref.name
