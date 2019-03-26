@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
-	User.findById('5c984f65f48e8734f09f9685')
+	User.findById('5bab316ce0a7c75f783cb8a8')
 		.then(user => {
 			req.user = user;
 			next();
@@ -32,18 +32,16 @@ app.use(shopRoutes);
 
 app.use(errorController.get404);
 
-const port = process.env.PORT || 3000;
 mongoose
 	.connect(
-		'mongodb+srv://devon:lrt032ca@cluster0-bovxh.mongodb.net/shop?retryWrites=true',
-		{ useNewUrlParser: true }
+		'mongodb+srv://maximilian:9u4biljMQc4jjqbe@cluster0-ntrwp.mongodb.net/shop?retryWrites=true'
 	)
-	.then(() => {
+	.then(result => {
 		User.findOne().then(user => {
 			if (!user) {
 				const user = new User({
-					name: 'Devon',
-					email: 'test@test.com',
+					name: 'Max',
+					email: 'max@test.com',
 					cart: {
 						items: []
 					}
@@ -51,10 +49,9 @@ mongoose
 				user.save();
 			}
 		});
-
-		app.listen(port, () => {
-			console.log(`Connected on port ${port}`);
-			console.log('Connected to MongoDB Atlas');
-		});
+		const port = process.env.PORT || 3000;
+		app.listen(port);
 	})
-	.catch(err => console.log(err));
+	.catch(err => {
+		console.log(err);
+	});
