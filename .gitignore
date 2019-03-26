@@ -146,3 +146,5 @@ YelpCamp/old
 git-token.txt
 *.pem
 package-lock.json
+privKey.ppk
+pubKey
