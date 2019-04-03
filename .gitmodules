@@ -1,0 +1,3 @@
+[submodule "AcademyOS"]
+	path = AcademyOS
+	url = git@github.com:ArcheKnight/AcademyOS.git
