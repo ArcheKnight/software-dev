@@ -1,4 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<app-username
+  [username]="'Chris'"
+  (userClicked)="onUserWasClicked($event)"
+></app-username>
+<app-username
+  [username]="'Anna'"
+  (userClicked)="onUserWasClicked($event)"
+></app-username>
 <h1 [ngClass]="{ updated: name != 'Max' }">
   {{ name }}
 </h1>
@@ -14,5 +22,8 @@
     Element {{ element }}
   </li>
 </ul>
+
+<input type="text" [(ngModel)]="message" />
+<p>{{ message }}</p>
 
 <router-outlet></router-outlet>

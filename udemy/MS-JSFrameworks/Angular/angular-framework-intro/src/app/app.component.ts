@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   name = 'Max';
   elements: number[] = [];
+  message: string = '';
 
   onChangeName() {
     this.name = 'Anna';
@@ -17,7 +18,11 @@ export class AppComponent {
     this.elements.push(this.elements.length + 1);
   }
 
-  getColor(element) {
+  getColor(element: number) {
     return element % 2 === 0 ? 'green' : 'red';
+  }
+
+  onUserWasClicked(userName: string) {
+    alert(userName);
   }
 }
