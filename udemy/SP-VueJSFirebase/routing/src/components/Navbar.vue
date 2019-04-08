@@ -61,4 +61,9 @@ li {
 a {
   color: #42b983;
 }
+
+/* This class is added by Vue for styling the active button/link (non-exact is for sub-set of pages) */
+a.router-link-exact-active {
+  color: purple;
+}
 </style>
