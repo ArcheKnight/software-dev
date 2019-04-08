@@ -1,0 +1,18 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h1 [ngClass]="{ updated: name != 'Max' }">
+  {{ name }}
+</h1>
+<p *ngIf="name != 'Max'">Name Updated!</p>
+<button (click)="onChangeName()">Change Name</button>
+<button (click)="onAddElement()">Add Element</button>
+<ul>
+  <li
+    [id]="'element' + element"
+    [ngStyle]="{ backgroundColor: getColor(element) }"
+    *ngFor="let element of elements"
+  >
+    Element {{ element }}
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
