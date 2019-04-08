@@ -18,10 +18,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 nav {
   text-align: center;
 }
+
 nav ul {
   padding: 0;
 }
