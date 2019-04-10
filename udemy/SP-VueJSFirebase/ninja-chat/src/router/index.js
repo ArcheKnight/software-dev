@@ -1,15 +1,33 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Welcome from '@/components/Welcome';
+import Chat from '@/components/Chat';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Welcome',
+      component: Welcome
+    },
+    {
+      path: '/chat',
+      name: 'Chat',
+      component: Chat,
+      props: true,
+      beforeEnter: (to, from, next) => {
+        // This is a "route guard", which protects against opening a route without a check
+        if (to.params.name) {
+          next();
+        } else {
+          next({
+            name: 'Welcome'
+          });
+        }
+      }
     }
   ]
-})
+});
